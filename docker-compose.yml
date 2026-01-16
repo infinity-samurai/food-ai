@@ -1,0 +1,71 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      - STORAGE_DRIVER=local
+      - LOCAL_UPLOAD_DIR=/data/uploads
+      - SQLITE_PATH=/data/app.db
+    volumes:
+      - foodai_data:/data
+    ports:
+      - "8000:8000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    environment:
+      - STORAGE_DRIVER=local
+      - LOCAL_UPLOAD_DIR=/data/uploads
+      - SQLITE_PATH=/data/app.db
+      - NUTRITION_DB_PATH=/app/nutrition_db/nutrition.json
+      - DEVICE=${DEVICE:-auto}
+      - CLIP_MODEL=${CLIP_MODEL:-openai/clip-vit-base-patch32}
+      - VLM_MODEL=${VLM_MODEL:-vikhyatk/moondream2}
+      - USE_VLM=${USE_VLM:-1}
+      - FOOD_THRESHOLD=${FOOD_THRESHOLD:-0.6}
+      - POLL_INTERVAL_SECONDS=${POLL_INTERVAL_SECONDS:-0.5}
+      - VLM_LOAD_TIMEOUT_SECONDS=${VLM_LOAD_TIMEOUT_SECONDS:-300}
+      - VLM_INFER_TIMEOUT_SECONDS=${VLM_INFER_TIMEOUT_SECONDS:-60}
+      - IMAGE_MAX_SIDE=${IMAGE_MAX_SIDE:-384}
+      - HF_HUB_DISABLE_TELEMETRY=1
+      - HF_HUB_OFFLINE=${HF_HUB_OFFLINE:-0}
+      - TRANSFORMERS_OFFLINE=${TRANSFORMERS_OFFLINE:-0}
+    volumes:
+      - foodai_data:/data
+      - hf_cache:/hf_cache
+    depends_on:
+      - backend
+
+  prefetch:
+    # Run once (online) to download model weights into the hf_cache volume, then you can run offline.
+    profiles: ["tools"]
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    environment:
+      - HF_HUB_DISABLE_TELEMETRY=1
+      - HF_HUB_OFFLINE=0
+      - TRANSFORMERS_OFFLINE=0
+      - DEVICE=${DEVICE:-cpu}
+      - CLIP_MODEL=${CLIP_MODEL:-openai/clip-vit-base-patch32}
+      - VLM_MODEL=${VLM_MODEL:-vikhyatk/moondream2}
+    volumes:
+      - hf_cache:/hf_cache
+    command: ["python", "prefetch_models.py"]
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - NEXT_PUBLIC_API_BASE=http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  foodai_data:
+  hf_cache:
+

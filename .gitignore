@@ -1,0 +1,47 @@
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# venvs
+.venv/
+venv/
+ENV/
+
+# --- Node / Next.js ---
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- App data / uploads / DB ---
+backend/data/
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Hugging Face / model caches (keep out of git) ---
+.cache/
+hf_cache/
+
+# --- Env files ---
+.env
+.env.*
+!.env.example
+

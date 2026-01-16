@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "fried_chicken_breaded",
+      "name": "Fried chicken (breaded)",
+      "aliases": ["crispy fried chicken", "fried chicken pieces", "fried chicken drumstick", "fried chicken thigh"],
+      "per_100g": {
+        "calories_kcal": 260,
+        "carbs_g": 10,
+        "protein_g": 23,
+        "fat_g": 14,
+        "sat_fat_g": 3.5,
+        "fiber_g": 0.5,
+        "sugar_g": 0.5,
+        "sodium_mg": 620,
+        "cholesterol_mg": 90,
+        "vitamin_c_mg": 0.0,
+        "iron_mg": 1.2
+      },
+      "ingredients": ["chicken", "flour", "seasonings", "oil"],
+      "allergens": ["gluten"]
+    },
+    {
+      "id": "pizza_cheese",
+      "name": "Pizza (cheese)",
+      "aliases": ["cheese pizza", "pizza slice", "margherita pizza"],
+      "per_100g": {
+        "calories_kcal": 266,
+        "carbs_g": 33,
+        "protein_g": 11,
+        "fat_g": 10,
+        "sat_fat_g": 4.5,
+        "fiber_g": 2.3,
+        "sugar_g": 3.6,
+        "sodium_mg": 640,
+        "cholesterol_mg": 22,
+        "vitamin_c_mg": 1.2,
+        "iron_mg": 2.4
+      },
+      "ingredients": ["wheat crust", "tomato sauce", "cheese"],
+      "allergens": ["gluten", "dairy"]
+    },
+    {
+      "id": "burger_beef",
+      "name": "Burger (beef)",
+      "aliases": ["hamburger", "beef burger", "cheeseburger"],
+      "per_100g": {
+        "calories_kcal": 250,
+        "carbs_g": 18,
+        "protein_g": 13,
+        "fat_g": 14,
+        "sat_fat_g": 5.0,
+        "fiber_g": 1.2,
+        "sugar_g": 3.5,
+        "sodium_mg": 450,
+        "cholesterol_mg": 45,
+        "vitamin_c_mg": 1.0,
+        "iron_mg": 2.2
+      },
+      "ingredients": ["bun", "beef patty", "condiments", "vegetables"],
+      "allergens": ["gluten"]
+    },
+    {
+      "id": "ramen_tonkotsu",
+      "name": "Ramen (tonkotsu)",
+      "aliases": ["tonkotsu ramen", "ramen bowl", "pork broth ramen"],
+      "per_100g": {
+        "calories_kcal": 160,
+        "carbs_g": 18,
+        "protein_g": 6,
+        "fat_g": 7,
+        "sat_fat_g": 2.2,
+        "fiber_g": 1.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 520,
+        "cholesterol_mg": 25,
+        "vitamin_c_mg": 0.5,
+        "iron_mg": 0.9
+      },
+      "ingredients": ["noodles", "pork", "broth", "egg", "green onion"],
+      "allergens": ["gluten", "egg"]
+    },
+    {
+      "id": "salad_mixed",
+      "name": "Salad (mixed greens)",
+      "aliases": ["green salad", "mixed salad", "garden salad"],
+      "per_100g": {
+        "calories_kcal": 30,
+        "carbs_g": 6,
+        "protein_g": 2,
+        "fat_g": 0.4,
+        "sat_fat_g": 0.1,
+        "fiber_g": 2.5,
+        "sugar_g": 3.0,
+        "sodium_mg": 50,
+        "cholesterol_mg": 0,
+        "vitamin_c_mg": 12.0,
+        "iron_mg": 1.0
+      },
+      "ingredients": ["mixed greens", "vegetables"],
+      "allergens": []
+    },
+    {
+      "id": "apple_raw",
+      "name": "Apple",
+      "aliases": ["red apple", "green apple"],
+      "per_100g": {
+        "calories_kcal": 52,
+        "carbs_g": 14,
+        "protein_g": 0.3,
+        "fat_g": 0.2,
+        "sat_fat_g": 0.0,
+        "fiber_g": 2.4,
+        "sugar_g": 10.0,
+        "sodium_mg": 1,
+        "cholesterol_mg": 0,
+        "vitamin_c_mg": 4.6,
+        "iron_mg": 0.1
+      },
+      "ingredients": ["apple"],
+      "allergens": []
+    },
+    {
+      "id": "unknown_food_generic",
+      "name": "Unknown food (generic estimate)",
+      "aliases": ["food", "meal", "dish"],
+      "per_100g": {
+        "calories_kcal": 180,
+        "carbs_g": 20,
+        "protein_g": 8,
+        "fat_g": 7,
+        "sat_fat_g": 2.0,
+        "fiber_g": 2.0,
+        "sugar_g": 3.0,
+        "sodium_mg": 300,
+        "cholesterol_mg": 20,
+        "vitamin_c_mg": 2.0,
+        "iron_mg": 1.0
+      },
+      "ingredients": [],
+      "allergens": []
+    }
+  ]
+}
+

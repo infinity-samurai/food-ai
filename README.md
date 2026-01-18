@@ -14,6 +14,25 @@ End-to-end MVP inspired by `analyze.food` (everything runs on your own machine/s
 
 - See `docs/FoodAI_Performance_Release_Plan.md`
 
+## Week 1 (Jan 16) foundation docs (implemented)
+
+- `docs/metrics.md`
+- `docs/label_schema.md`
+- `docs/dataset_plan_week1.md`
+- `datasets/labels_template.csv`
+
+## Week 1 code (implemented): offline eval harness starter
+
+Food vs not-food gate evaluation (CLIP), using your labeled CSV:
+
+```bash
+python3 tools/eval/food_gate_eval.py \
+  --labels datasets/labels.csv \
+  --images-dir datasets/images \
+  --device cpu \
+  --out results_food_gate.json
+```
+
 ## Accuracy Improvement Features (current)
 
 1. **Local inference pipeline (no external LLM APIs)**
@@ -53,6 +72,7 @@ Notes:
 - First run will take time because the worker downloads local model weights into the `hf_cache` docker volume.
 - Uploads + job DB live in the `foodai_data` docker volume.
 - If a job gets stuck in `in_progress`, check `docker compose logs -f worker` (it will show whether the VLM is downloading/loading).
+- **Speed**: by default Docker runs with `FAST_MODE=1` (CLIP-only dish selection) to keep analysis typically under ~10s on CPU. Set `FAST_MODE=0 USE_VLM=1` if you want to attempt VLM dish recognition (slower on CPU).
 
 ### 1) Backend
 

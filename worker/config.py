@@ -46,6 +46,9 @@ class Settings:
     # Speed/quality tradeoff: downscale images before CLIP/VLM.
     image_max_side: int = int(os.getenv("IMAGE_MAX_SIDE", "384"))
 
+    # Fast mode: target <10s on CPU by skipping VLM and using CLIP-only dish selection + local DB.
+    fast_mode: bool = os.getenv("FAST_MODE", "0").strip().lower() in ("1", "true", "yes", "on")
+
 
 settings = Settings()
 

@@ -44,6 +44,7 @@ def main() -> None:
     print(f"[worker] clip_model={settings.clip_model}")
     print(f"[worker] vlm_model={settings.vlm_model}")
     print(f"[worker] use_vlm={settings.use_vlm}")
+    print(f"[worker] fast_mode={settings.fast_mode}")
 
     conn = connect(settings.sqlite_path)
     init_db(conn)
@@ -117,7 +118,11 @@ def main() -> None:
             description = ""
             health_note = ""
 
-            if settings.use_vlm:
+            if settings.fast_mode:
+                vlm_note = "FAST_MODE=1: skipping VLM for speed; using CLIP dish selection."
+                print(f"[worker] job={job.id} {vlm_note}")
+                dish_name = "food"
+            elif settings.use_vlm:
                 try:
                     if vlm is None:
                         print(f"[worker] job={job.id} loading VLM model={settings.vlm_model} ...")

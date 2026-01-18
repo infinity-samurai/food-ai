@@ -1,0 +1,3 @@
+image_id,source,is_food,dish_label,portion_label,portion_grams,not_food_type,notes
+example_001.jpg,phone,1,pho,medium,,,
+example_002.jpg,web,0,,,,text_menu,"menu screenshot"
